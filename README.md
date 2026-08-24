@@ -2,9 +2,36 @@
 
 > 將只能在 Windows 桌面操作的傳統 ERP，逐步拆成可驗證的 Headless CLI、Discord 工作流與遠端 Web 介面；保留原有商業規則，同時讓帳密、原廠執行元件與企業資料留在受控主機。
 
+## 原版 EXE × 真實 Web 對照
+
+<table>
+  <thead>
+    <tr>
+      <th width="50%">Delphi 32-bit Windows EXE</th>
+      <th width="50%">Flask 真實網頁版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/screenshots/original-erp.png"><img src="docs/screenshots/original-erp.png" alt="原版正航銷貨單桌面 EXE" width="100%"></a></td>
+      <td><a href="docs/screenshots/web-sale-voucher.png"><img src="docs/screenshots/web-sale-voucher.png" alt="由瀏覽器實際渲染的銷貨單 Web UI" width="100%"></a></td>
+    </tr>
+    <tr>
+      <td>原版只能在相容 Windows 桌面環境執行；圖中同時保留版本對話框作為舊技術棧背景。</td>
+      <td>這是可互動的 Flask／HTML／CSS／JavaScript 頁面，不是遠端桌面或畫面串流。</td>
+    </tr>
+  </tbody>
+</table>
+
+兩張圖使用同一張示範銷貨單，保留相同欄位內容，讓桌面版與 Web 版可以直接比對。Web 版的表單位置與層級來自反編譯後的 DFM 結構研究，而資料是後端當次讀取後填入；畫面不預抓下一張單。
+
+兩張圖片使用「現金銷售客戶」示範資料，沒有個人客戶資訊，並依原始像素公開展示；圖片使用原則見 [docs/screenshots/README.md](docs/screenshots/README.md)。
+
 這是一個以正航 IT357 網路版為研究對象的工程 Showcase。Repository 只呈現我處理舊系統整合時的思考、架構與里程碑，不包含原版 EXE、原廠 Library、反編譯產物、可用帳號密碼、資料匯出或可直接複製專有流程的實作細節。
 
-> **Private review notice：**目前兩張對照圖是使用者指定的真實截圖，使用「現金銷售客戶」示範資料，沒有個人客戶資訊；圖片保持原始像素、不做重繪。Repository 目前先維持 Private，改為 Public 前再做一次一般資訊檢查。
+## 為什麼不公開操作程式碼
+
+基於商業軟體版權疑慮、原廠授權邊界與企業環境安全考量，這個 Repository 不放上反編譯原始碼、完整實作原始碼，也不提供可直接驅動原廠元件的對應操作程式碼。公開內容限於我原創的系統架構、研究方法、里程碑、介面成果與安全設計，用來說明如何解決問題，而不是散布第三方程式或可直接複製的專有整合方式。
 
 ## 我為什麼做這個專案
 
@@ -180,24 +207,14 @@ erpctl voucher create --input <ORDER_JSON> --confirm <TOKEN>
 - [docs/screenshots/README.md](docs/screenshots/README.md)：原版與 Web 版截圖的去識別化規則
 - [SECURITY.md](SECURITY.md)：憑證、企業資料與專有元件的保護方式
 
-## 原版 EXE × 真實 Web 對照
-
-| Delphi 32-bit Windows EXE | Flask 真實網頁版本 |
-| --- | --- |
-| [![原版正航銷貨單桌面 EXE](docs/screenshots/original-erp-private-review.png)](docs/screenshots/original-erp-private-review.png) | [![由瀏覽器實際渲染的銷貨單 Web UI](docs/screenshots/web-sale-voucher-private-review.png)](docs/screenshots/web-sale-voucher-private-review.png) |
-| 原版只能在相容 Windows 桌面環境執行；圖中同時保留版本對話框作為舊技術棧背景。 | 這是可互動的 Flask／HTML／CSS／JavaScript 頁面，不是遠端桌面或畫面串流。 |
-
-兩張圖使用同一張示範銷貨單，保留相同欄位內容，讓桌面版與 Web 版可以直接比對。Web 版的表單位置與層級來自反編譯後的 DFM 結構研究，而資料是後端當次讀取後填入；畫面不預抓下一張單。
-
-目前圖片依使用者要求保持原樣並只放在 Private Repository。未來改為 Public 前，再依 [docs/screenshots/README.md](docs/screenshots/README.md) 完成一次一般資訊檢查。
-
 ## 不包含的內容
 
 - 原版 EXE、DLL、BPL 或其他原廠 Binary
-- 反編譯原始碼、記憶體 Dump、型別庫 Dump 或函式位址
+- 完整實作原始碼、反編譯原始碼、記憶體 Dump、型別庫 Dump 或函式位址
+- 可直接驅動原廠元件、登入或操作正式 ERP 的對應程式碼
 - 資料表清單、連線字串與可重現內部資料模型的細節
 - ERP、Discord、SSH 或資料庫帳號密碼與 Token
-- 客戶、產品、單據、企業識別資料與未遮蔽截圖
+- 可識別的正式客戶、產品、單據、企業資料或批次匯出
 - 可直接對正式環境執行的腳本或設定檔
 
 ## 專案邊界

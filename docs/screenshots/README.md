@@ -1,13 +1,13 @@
 # Screenshot Policy
 
-這個資料夾目前包含使用者明確指定、用於 Private review 的兩張真實截圖。它們使用「現金銷售客戶」示範資料，沒有個人客戶資訊，並保留相同單據內容，目的是證明桌面 EXE 與真實 Web 頁面可以逐欄比對。
+這個資料夾包含兩張公開展示的真實截圖。它們使用「現金銷售客戶」示範資料，沒有個人客戶資訊，並保留相同單據內容，目的是證明桌面 EXE 與真實 Web 頁面可以逐欄比對。
 
 目前檔名：
 
-- `original-erp-private-review.png`：原版 Delphi 32-bit 桌面 EXE 銷貨單畫面
-- `web-sale-voucher-private-review.png`：Flask／HTML／CSS／JavaScript 真實網頁畫面
+- `original-erp.png`：原版 Delphi 32-bit 桌面 EXE 銷貨單畫面
+- `web-sale-voucher.png`：Flask／HTML／CSS／JavaScript 真實網頁畫面
 
-兩張圖片依使用者要求保持原始像素，不做遮蔽、重繪或 AI 修復。Repository 改為 Public 前再做一次一般資訊檢查；只有屆時發現不適合公開的內容，才另存人工遮蔽版本。
+兩張圖片依使用者要求保持原始像素，不做遮蔽、重繪或 AI 修復。
 
 ## 未來其他截圖的檢查項目
 
