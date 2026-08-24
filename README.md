@@ -64,6 +64,56 @@ Web 版由 Flask API 與瀏覽器原生 HTML／CSS／JavaScript 組成。畫面�
 - Web 版銷貨單：依桌面版表單結構重建可閱讀介面，保留框架並只替換當次即時讀取的資料。
 - 可驗證結果：高風險操作採用確認、唯一請求識別與事後比對，遇到不確定結果時停止重送。
 
+## 從 ERP CLI 到第三方作業中樞
+
+Headless CLI 的價值不只是不開啟 ERP 視窗。透過互通性所需的反編譯與唯讀 SQL 交叉研究，我釐清既有商業物件，以及銷貨單、客戶、品項、地址與金額之間的資料關係，再把這些能力整理成穩定的 JSON 契約。後續功能因此可以組合既有 ERP 資料與外部服務，而不必再從桌面畫面抓字、模擬點擊，或為每個新入口重寫一次規則。
+
+[實際部署的標籤與出貨工作頁](https://sale.hon.dental/today-labels)（需授權登入）就是其中一個延伸。這是由 Flask 與瀏覽器原生技術建立的真實 Web 應用，不是 ERP 畫面串流：它能依日期載入銷貨單、選取待處理單據，再串起郵局版位、貨運標籤、電子發票與 UDI 紀錄等作業。
+
+<a href="docs/screenshots/today-labels-workflow.png"><img src="docs/screenshots/today-labels-workflow.png" alt="去識別化的今日銷貨單標籤與第三方作業整合頁" width="100%"></a>
+
+> 上圖是實際瀏覽器頁面的去識別化截圖，不是設計稿；依日期載入、發票內容調整、UDI 掃描、郵局版位與 HCT 標籤等控制項皆屬真實 Web 功能。圖片已由資料提供者確認可公開。
+
+目前已實作與可接續擴充的範圍刻意分開標示：
+
+| 狀態 | 能力 |
+| --- | --- |
+| 已實作 | 依日期讀取 ERP 銷貨資料、勾選與批次處理、郵局 20 格標籤版位、UDI 條碼掃描與紀錄 |
+| 已實作 | 串接第三方貨運建立託運資料、產生標籤、查詢貨態，並支援貨運代收貨款資料 |
+| 已實作 | 依銷貨單內容整理品項與金額，串接第三方電子發票服務，保存可稽核的處理結果 |
+| 可擴充 | 以相同 Adapter 邊界接入付款連結、信用卡／虛擬帳號、第三方收款狀態、Webhook 與自動對帳；這些是架構可承接的下一步，不宣稱所有金流服務目前都已上線 |
+
+```mermaid
+flowchart LR
+    ERP[Delphi 32-bit ERP]
+    CLI[Headless CLI<br/>JSON Contract]
+    Model[唯讀 SQL<br/>資料關係模型]
+    Hub[Flask 作業中樞]
+    Postal[郵局標籤與版位]
+    Freight[第三方貨運<br/>標籤／追蹤／代收]
+    Invoice[第三方電子發票]
+    UDI[UDI 掃描與紀錄]
+    Payment[第三方付款／收款<br/>Webhook／對帳]
+    Audit[本機稽核紀錄]
+
+    ERP --> CLI
+    ERP --> Model
+    CLI --> Hub
+    Model --> Hub
+    Hub --> Postal
+    Hub --> Freight
+    Hub --> Invoice
+    Hub --> UDI
+    Hub -. Adapter 擴充 .-> Payment
+    Postal --> Audit
+    Freight --> Audit
+    Invoice --> Audit
+    UDI --> Audit
+    Payment -. 回應與狀態 .-> Audit
+```
+
+外部服務只接收完成該次作業所需的最少資料；ERP 帳密、資料庫連線與原廠元件仍留在受控 Windows 主機。SQL 僅用於唯讀理解、查詢與核對，正式 ERP 寫入仍經既有商業物件；第三方回應則獨立保存狀態與稽核識別，方便追蹤與對帳。
+
 ## Milestones
 
 | 階段 | 重點 | 結果 |
