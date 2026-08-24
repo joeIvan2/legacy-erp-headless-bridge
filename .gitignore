@@ -1,0 +1,76 @@
+# Credentials and local configuration
+.env
+.env.*
+*.secret
+*.secrets
+*credentials*
+*password*
+*token*
+config.json
+config.local.*
+secrets/
+
+# Keys and certificates
+*.pem
+*.key
+*.pfx
+*.p12
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+
+# Vendor and compiled artifacts
+*.exe
+*.dll
+*.bpl
+*.dcp
+*.ocx
+*.com
+*.msi
+*.cab
+*.pdb
+*.map
+*.dmp
+
+# Archives, databases and exports
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.bak
+*.db
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+*.csv
+*.tsv
+*.xlsx
+*.xls
+exports/
+backups/
+
+# Logs, caches and local tooling
+*.log
+logs/
+.cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+.codex/
+
+# Raw screenshots must never enter history
+docs/screenshots/raw/
+*-unredacted.*
+*-original-private.*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
