@@ -2,6 +2,31 @@
 
 > 不是重寫 ERP，不是遠端桌面，也不是讓 AI 直接改資料庫。這個專案把一套 2000 年代的 Windows ERP，拆成可驗證的資料邊界，再接上 Headless CLI、Discord 自然語言工作流、Web 與銷售預測。
 
+## 要解決的問題：ERP 像一座沒有門的倉庫
+
+傳統 ERP 裡有客戶、訂單、庫存與帳務，也累積了多年商業規則；但它沒有現代 **API**，也沒有可供程式穩定呼叫的 **CLI**。資料雖然在裡面，外部系統卻沒有一扇安全、可驗證的門。
+
+因此，每接一個新需求都會變成一次高風險客製：
+
+- 電子發票：如何取得正確品項、稅別與金額，又能留下處理紀錄？
+- 第三方支付：如何建立付款、接收 Webhook，並和 ERP 單據安全對帳？
+- 第三方貨運：如何送出最少必要資料、取得標籤與貨態，卻不外洩 ERP 帳密？
+- 業務異地打單：如何讓手機、macOS 或 Discord 下單，而不是遠端控制公司那台 Windows？
+- 銷售預測：如何把歷史交易變成補貨、回購與交叉推薦訊號，而不是人工匯出 Excel？
+- Lead 追蹤與預測：如何把客戶互動、下一步行動與結果回寫，形成可以持續改善的閉環？
+
+本專案要做的，就是在不破壞老 ERP 的前提下補上這扇門：把內部能力整理成 **Headless CLI + JSON Contract**，讓發票、支付、貨運、遠端打單與 AI 分析都能接上同一個可驗證核心。
+
+[開啟 8 頁全螢幕 Pitch](https://joeivan2.github.io/legacy-erp-headless-bridge/) · [查看 GitHub Repository](https://github.com/joeIvan2/legacy-erp-headless-bridge)
+
+### 這些不是 Roadmap，而是同一套已運作系統
+
+<a href="docs/screenshots/erp-workflow-navigation.png">
+  <img src="docs/screenshots/erp-workflow-navigation.png" alt="實際系統導覽列，顯示銷貨憑單、新版唯讀查詢、借入還出、應收帳款、標籤列印、產品銷售分析、庫存盤點、入庫、簽核、折價券與知識庫等已落地模組" width="100%">
+</a>
+
+上圖是實際系統的模組導覽：銷貨與借還查詢、應收帳款、發票／貨運標籤、產品銷售分析、庫存盤點、人體組織入庫、大額方案簽核、折價券與臨床教育知識庫都已在同一套工作流運作。包含第三方支付／收款對帳在內，這些是**已完成能力**；後續可擴充的是新的支付或物流供應商 Adapter，不是從零開始。
+
 這份 Showcase 是我對群聯電子「[AI 賦能應用工程師](https://www.104.com.tw/job/8y9sm?jobsource=company_job)」職缺最直接的實作回答：面對沒有完整說明書的企業系統，透過試錯、拆解、驗證與持續優化，把 AI 真正接進既有流程，而不是只做一個離開真實環境就不能用的 Demo。這也呼應群聯所說的「[電玩高手思維](https://uanalyze.com.tw/articles/2374653827)」——先找到規則、突破限制，再把解法做成別人能穩定使用的系統。
 
 ## 起點：一套仍在營運的老 ERP
