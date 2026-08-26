@@ -13,6 +13,7 @@
 - `web-sale-voucher.png`：Flask／HTML／CSS／JavaScript 實際渲染的原始介面重建版本。
 - `today-labels-workflow.png`：將銷貨資料接上發票、UDI、郵局版位與 HCT 標籤的實際作業頁。
 - `erp-workflow-navigation.png`：實際系統導覽列，證明銷貨、借還、應收、標籤、分析、庫存、入庫、簽核、折價券與知識庫等模組已在同一套系統落地。
+- `sales-lead-replenishment-prediction.png`：實際銷售分析結果，呈現客戶週期補貨、建議購買品、推薦依據、關聯商品與推薦分數。
 
 所有圖片都由 Repository 所有者提供、審閱並明確指定放入公開 GitHub。圖片依提供時的原始像素保存，不做 AI 修復，也不將畫面宣稱為合成資料或完全去識別化；其中部分圖片刻意保留單號、客戶／品項欄位、價格、Discord 顯示名稱或網址查詢參數，作為實際流程證據。
 
