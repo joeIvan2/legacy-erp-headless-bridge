@@ -5,7 +5,7 @@
 ## 圖片清單
 
 - `legacy-delphi-sale-voucher.png`：原始 Delphi 32-bit ERP 與版本資訊，作為整個改造流程的起點。
-- `readonly-sql-sale-voucher.png`：MSSQL 唯讀查詢取得的銷貨單、客戶與品項明細，作為資料流證據。
+- `readonly-sql-sale-voucher.png`：MSSQL 唯讀查詢取得的銷貨單、客戶與品項明細；客戶名稱與敏感品項文字已遮蔽，作為資料流證據。
 - `web-rebuild-devtools.png`：依原始表單結構重建的 Web 畫面與 DOM 檢查，用來呈現欄位／物件層級已可被程式理解。
 - `discord-ai-sale-voucher.png`：Discord 自然語言要求建立銷貨單後，Bot 回傳單號與 SQL 驗證結果。
 - `sales-query-web.png`：實際 Web 銷貨單查詢頁。
