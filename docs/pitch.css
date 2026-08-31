@@ -186,6 +186,7 @@ a:focus-visible {
   z-index: 1;
   width: 100vw;
   height: 100svh;
+  overflow: hidden;
 }
 
 .slide {
@@ -977,6 +978,26 @@ h2 em {
 .slide[lang="en"] .eyebrow {
   margin-bottom: 13px;
   letter-spacing: .12em;
+}
+
+.language-note {
+  display: inline-block;
+  margin-left: 14px;
+  padding: 5px 9px;
+  color: #c7d5e8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-decoration: none;
+  text-transform: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 999px;
+}
+
+.language-note:hover {
+  color: #fff;
+  border-color: var(--blue);
 }
 
 .slide[lang="en"] .lead,

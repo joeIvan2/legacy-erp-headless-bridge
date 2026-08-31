@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="中英雙語 16 頁全螢幕 Pitch：將沒有 API、CLI 的 32-bit Delphi ERP，安全接上 AI、Discord、電子發票、貨運與銷售預測。">
+  <meta name="description" content="English-first bilingual 16-slide pitch: connecting a 32-bit Delphi ERP with no API or CLI to AI, Discord, e-invoicing, logistics, and sales forecasting. 中文版自第 9 頁開始。">
   <meta name="theme-color" content="#070a10">
   <title>Legacy ERP → AI｜中英雙語 16 頁 Pitch</title>
   <link rel="stylesheet" href="pitch.css">
 </head>
 <body>
-  <a class="skip-link" href="#slide-1">跳到簡報內容 / Skip to slides</a>
+  <a class="skip-link" href="#1">Skip to slides / 跳到簡報內容</a>
 
   <header class="topbar" aria-label="簡報資訊 / Presentation information">
     <a class="brand" href="https://github.com/joeIvan2/legacy-erp-headless-bridge" aria-label="開啟 GitHub Repository / Open GitHub repository">
@@ -25,10 +25,10 @@
   </header>
 
   <main class="deck" id="deck">
-    <section class="slide is-active" id="slide-1" data-title="沒有接口的老 ERP" aria-labelledby="slide-1-title">
+    <section class="slide" id="slide-1" data-title="沒有接口的老 ERP" aria-labelledby="slide-1-title" aria-hidden="true">
       <div class="slide-inner hero-grid">
         <div class="copy-block">
-          <p class="eyebrow">01 · 要解決的問題</p>
+          <p class="eyebrow">09 · 要解決的問題</p>
           <h1 id="slide-1-title">資料都在 ERP 裡，<br><em>卻沒有一扇門。</em></h1>
           <p class="lead">這套 26 年前的 32-bit Delphi ERP 沒有現代 API，也沒有 CLI。人看得到、點得到；但外部系統無法安全、穩定地呼叫。</p>
           <div class="chip-row" aria-label="系統限制">
@@ -48,7 +48,7 @@
 
     <section class="slide" id="slide-2" data-title="六個被卡住的需求" aria-labelledby="slide-2-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">02 · 商業代價</p>
+        <p class="eyebrow">10 · 商業代價</p>
         <h2 id="slide-2-title">沒有接口，<em>六個成長需求一起被卡住。</em></h2>
         <div class="need-grid">
           <article class="need-card">
@@ -82,7 +82,7 @@
 
     <section class="slide" id="slide-3" data-title="兩條安全路徑" aria-labelledby="slide-3-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">03 · 解題策略</p>
+        <p class="eyebrow">11 · 解題策略</p>
         <h2 id="slide-3-title">不重寫 ERP。<em>先選對入口。</em></h2>
         <p class="section-lead">先用反編譯、DFM 與型別研究看懂邊界；再依模組成熟度，選擇其中一條路。</p>
         <div class="route-layout">
@@ -117,7 +117,7 @@
 
     <section class="slide" id="slide-4" data-title="Accessibility + SQL 雙驗證" aria-labelledby="slide-4-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">04 · 路線 A</p>
+        <p class="eyebrow">12 · 路線 A</p>
         <h2 id="slide-4-title">畫面一把尺、SQL 一把尺。<br><em>量的是同一張單。</em></h2>
         <div class="evidence-grid">
           <figure class="visual-frame">
@@ -138,7 +138,7 @@
     <section class="slide" id="slide-5" data-title="ERP Kernel 與 Headless" aria-labelledby="slide-5-title" aria-hidden="true">
       <div class="slide-inner split-visual">
         <div class="copy-block">
-          <p class="eyebrow">05 · 路線 B</p>
+          <p class="eyebrow">13 · 路線 B</p>
           <h2 id="slide-5-title">找到 Kernel，<br><em>就拿掉滑鼠和鍵盤。</em></h2>
           <p class="lead compact">正式流程不再靠視窗位置、焦點或人工節奏。查詢與建立都經固定命令邊界，結果再獨立核對。</p>
           <div class="status-stack">
@@ -159,7 +159,7 @@
 
     <section class="slide" id="slide-6" data-title="Discord 異地打單" aria-labelledby="slide-6-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">06 · AI 工作流</p>
+        <p class="eyebrow">14 · AI 工作流</p>
         <h2 id="slide-6-title">當 ERP 有了 CLI，<br><em>業務可以在任何地方打單。</em></h2>
         <div class="wide-evidence">
           <figure class="visual-frame discord-frame">
@@ -182,7 +182,7 @@
           <figcaption>實際作業頁｜銷貨資料接上出貨與第三方服務</figcaption>
         </figure>
         <div class="copy-block">
-          <p class="eyebrow">07 · 企業整合</p>
+          <p class="eyebrow">15 · 企業整合</p>
           <h2 id="slide-7-title">同一個接口，<br><em>接上外面的世界。</em></h2>
           <figure class="module-strip">
             <img src="screenshots/erp-workflow-navigation.png" alt="實際系統導覽列，顯示銷貨、應收、標籤、分析、庫存、簽核與知識庫等已落地模組">
@@ -202,7 +202,7 @@
     <section class="slide" id="slide-8" data-title="分析、預測與下一步" aria-labelledby="slide-8-title" aria-hidden="true">
       <div class="slide-inner final-grid">
         <div class="copy-block">
-          <p class="eyebrow">08 · 從資料到決策</p>
+          <p class="eyebrow">16 · 從資料到決策</p>
           <h2 id="slide-8-title">資料一旦能安全出來，<br><em>就能預測下一步。</em></h2>
           <p class="lead compact">橋接層負責「可信地拿資料」；分析層負責「下一個最佳行動」。兩邊分開，AI 才不會越權操作 ERP。</p>
           <div class="insight-grid">
@@ -226,10 +226,10 @@
       </div>
     </section>
 
-    <section class="slide" id="slide-9" lang="en" data-lang="en" data-title="An ERP with no interface" aria-labelledby="slide-9-title" aria-hidden="true">
+    <section class="slide is-active" id="slide-9" lang="en" data-lang="en" data-title="An ERP with no interface" aria-labelledby="slide-9-title">
       <div class="slide-inner hero-grid">
         <div class="copy-block">
-          <p class="eyebrow">09 · THE PROBLEM</p>
+          <p class="eyebrow">01 · THE PROBLEM <a class="language-note" href="#9">中文版從第 9 頁開始 →</a></p>
           <h1 id="slide-9-title">All the data is in the ERP,<br><em>but there is no door.</em></h1>
           <p class="lead">This 26-year-old 32-bit Delphi ERP has no modern API and no CLI. People can see and click it, but external systems cannot call it safely or reliably.</p>
           <div class="chip-row" aria-label="System constraints">
@@ -249,7 +249,7 @@
 
     <section class="slide" id="slide-10" lang="en" data-lang="en" data-title="Six blocked growth needs" aria-labelledby="slide-10-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">10 · BUSINESS COST</p>
+        <p class="eyebrow">02 · BUSINESS COST</p>
         <h2 id="slide-10-title">Without an interface,<br><em>six growth needs are blocked together.</em></h2>
         <div class="need-grid">
           <article class="need-card">
@@ -283,7 +283,7 @@
 
     <section class="slide" id="slide-11" lang="en" data-lang="en" data-title="Two safe routes" aria-labelledby="slide-11-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">11 · SOLUTION STRATEGY</p>
+        <p class="eyebrow">03 · SOLUTION STRATEGY</p>
         <h2 id="slide-11-title">Do not rewrite the ERP.<br><em>Choose the right entry point first.</em></h2>
         <p class="section-lead">Use reverse engineering, DFM, and type analysis to understand the boundary, then choose one route according to each module's maturity.</p>
         <div class="route-layout">
@@ -318,7 +318,7 @@
 
     <section class="slide" id="slide-12" lang="en" data-lang="en" data-title="Accessibility + SQL verification" aria-labelledby="slide-12-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">12 · ROUTE A</p>
+        <p class="eyebrow">04 · ROUTE A</p>
         <h2 id="slide-12-title">The UI is one ruler. SQL is another.<br><em>Both measure the same document.</em></h2>
         <div class="evidence-grid">
           <figure class="visual-frame">
@@ -339,7 +339,7 @@
     <section class="slide" id="slide-13" lang="en" data-lang="en" data-title="ERP kernel and headless access" aria-labelledby="slide-13-title" aria-hidden="true">
       <div class="slide-inner split-visual">
         <div class="copy-block">
-          <p class="eyebrow">13 · ROUTE B</p>
+          <p class="eyebrow">05 · ROUTE B</p>
           <h2 id="slide-13-title">Once the kernel is found,<br><em>remove the mouse and keyboard.</em></h2>
           <p class="lead compact">Production workflows no longer depend on window coordinates, focus, or human timing. Queries and creation use fixed command boundaries, followed by independent reconciliation.</p>
           <div class="status-stack">
@@ -360,7 +360,7 @@
 
     <section class="slide" id="slide-14" lang="en" data-lang="en" data-title="Remote order entry through Discord" aria-labelledby="slide-14-title" aria-hidden="true">
       <div class="slide-inner">
-        <p class="eyebrow">14 · AI WORKFLOW</p>
+        <p class="eyebrow">06 · AI WORKFLOW</p>
         <h2 id="slide-14-title">Once the ERP has a CLI,<br><em>sales staff can create orders from anywhere.</em></h2>
         <div class="wide-evidence">
           <figure class="visual-frame discord-frame">
@@ -383,7 +383,7 @@
           <figcaption>Operating work page | Sales data connected to shipping and third-party services</figcaption>
         </figure>
         <div class="copy-block">
-          <p class="eyebrow">15 · ENTERPRISE INTEGRATION</p>
+          <p class="eyebrow">07 · ENTERPRISE INTEGRATION</p>
           <h2 id="slide-15-title">One controlled interface<br><em>connects to the outside world.</em></h2>
           <figure class="module-strip">
             <img src="screenshots/erp-workflow-navigation.png" alt="Production navigation showing sales, receivables, labels, analytics, inventory, approvals, and knowledge-base modules">
@@ -403,7 +403,7 @@
     <section class="slide" id="slide-16" lang="en" data-lang="en" data-title="Analytics, prediction, and next action" aria-labelledby="slide-16-title" aria-hidden="true">
       <div class="slide-inner final-grid">
         <div class="copy-block">
-          <p class="eyebrow">16 · FROM DATA TO DECISIONS</p>
+          <p class="eyebrow">08 · FROM DATA TO DECISIONS</p>
           <h2 id="slide-16-title">Once data can leave safely,<br><em>the next action becomes predictable.</em></h2>
           <p class="lead compact">The bridge retrieves trustworthy data. The intelligence layer recommends the next best action. Keeping them separate prevents AI from exceeding its ERP authority.</p>
           <div class="insight-grid">
@@ -429,15 +429,15 @@
   </main>
 
   <footer class="controls" aria-label="簡報導覽 / Presentation navigation">
-    <button class="nav-button" id="prevButton" type="button" aria-label="上一頁">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span>上一頁</span>
+    <button class="nav-button" id="prevButton" type="button" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span>Previous</span>
     </button>
     <div class="progress-group">
       <div class="dots" id="dots" aria-label="選擇頁面 / Select slide"></div>
-      <p class="page-status" id="pageStatus" aria-live="polite">01 / 16 · 沒有接口的老 ERP</p>
+      <p class="page-status" id="pageStatus" aria-live="polite">01 / 16 · An ERP with no interface</p>
     </div>
-    <button class="nav-button primary" id="nextButton" type="button" aria-label="下一頁">
-      <span>下一頁</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    <button class="nav-button primary" id="nextButton" type="button" aria-label="Next slide">
+      <span>Next</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
     </button>
   </footer>
   <div class="progress-bar" aria-hidden="true"><span id="progressBar"></span></div>

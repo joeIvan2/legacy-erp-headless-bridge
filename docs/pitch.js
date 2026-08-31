@@ -1,7 +1,11 @@
 (() => {
   "use strict";
 
-  const slides = [...document.querySelectorAll(".slide")];
+  const slides = [...document.querySelectorAll(".slide")].sort((a, b) => {
+    const aOrder = a.dataset.lang === "en" ? 0 : 1;
+    const bOrder = b.dataset.lang === "en" ? 0 : 1;
+    return aOrder - bOrder;
+  });
   const prevButton = document.querySelector("#prevButton");
   const nextButton = document.querySelector("#nextButton");
   const fullscreenButton = document.querySelector("#fullscreenButton");
