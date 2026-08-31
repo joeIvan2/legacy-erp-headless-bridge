@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="8 頁全螢幕 Pitch：將沒有 API、CLI 的 32-bit Delphi ERP，安全接上 AI、Discord、電子發票、貨運與銷售預測。">
+  <meta name="description" content="中英雙語 16 頁全螢幕 Pitch：將沒有 API、CLI 的 32-bit Delphi ERP，安全接上 AI、Discord、電子發票、貨運與銷售預測。">
   <meta name="theme-color" content="#070a10">
-  <title>從老 ERP 到 AI｜8 頁 Pitch</title>
+  <title>Legacy ERP → AI｜中英雙語 16 頁 Pitch</title>
   <link rel="stylesheet" href="pitch.css">
 </head>
 <body>
-  <a class="skip-link" href="#slide-1">跳到簡報內容</a>
+  <a class="skip-link" href="#slide-1">跳到簡報內容 / Skip to slides</a>
 
-  <header class="topbar" aria-label="簡報資訊">
-    <a class="brand" href="https://github.com/joeIvan2/legacy-erp-headless-bridge" aria-label="開啟 GitHub Repository">
+  <header class="topbar" aria-label="簡報資訊 / Presentation information">
+    <a class="brand" href="https://github.com/joeIvan2/legacy-erp-headless-bridge" aria-label="開啟 GitHub Repository / Open GitHub repository">
       <span class="brand-mark" aria-hidden="true">H</span>
       <span>LEGACY ERP <b>→ AI</b></span>
     </a>
     <div class="topbar-right">
-      <span class="hint">方向鍵／空白鍵換頁</span>
-      <button class="icon-button" id="fullscreenButton" type="button" aria-label="切換全螢幕">
+      <span class="hint">方向鍵／空白鍵換頁 · Arrow keys / Space</span>
+      <button class="icon-button" id="fullscreenButton" type="button" aria-label="切換全螢幕 / Enter fullscreen">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5m13 5h5v-5"/></svg>
       </button>
     </div>
@@ -225,15 +225,216 @@
         </figure>
       </div>
     </section>
+
+    <section class="slide" id="slide-9" lang="en" data-lang="en" data-title="An ERP with no interface" aria-labelledby="slide-9-title" aria-hidden="true">
+      <div class="slide-inner hero-grid">
+        <div class="copy-block">
+          <p class="eyebrow">09 · THE PROBLEM</p>
+          <h1 id="slide-9-title">All the data is in the ERP,<br><em>but there is no door.</em></h1>
+          <p class="lead">This 26-year-old 32-bit Delphi ERP has no modern API and no CLI. People can see and click it, but external systems cannot call it safely or reliably.</p>
+          <div class="chip-row" aria-label="System constraints">
+            <span class="chip">Windows-only</span>
+            <span class="chip">No API</span>
+            <span class="chip">No CLI</span>
+            <span class="chip">Business rules must remain</span>
+          </div>
+          <p class="takeaway">The largest gap between AI and higher organizational productivity is often a legacy ERP with no API that can only be operated by people.</p>
+        </div>
+        <figure class="visual-frame hero-visual">
+          <img src="screenshots/legacy-delphi-sale-voucher.png" alt="A still-operational 32-bit Delphi ERP sales voucher screen">
+          <figcaption>Original ERP | Windows desktop workflow | No external interface</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-10" lang="en" data-lang="en" data-title="Six blocked growth needs" aria-labelledby="slide-10-title" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow">10 · BUSINESS COST</p>
+        <h2 id="slide-10-title">Without an interface,<br><em>six growth needs are blocked together.</em></h2>
+        <div class="need-grid">
+          <article class="need-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6zM9 10h6M9 14h6M9 18h4"/></svg>
+            <h3>E-invoicing</h3><p>Correct products, tax types, and amounts, with an auditable processing result.</p>
+          </article>
+          <article class="need-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v11H3zM3 10h18M7 15h3"/></svg>
+            <h3>Third-party payments</h3><p>Payments, webhooks, and ERP documents require reliable reconciliation.</p>
+          </article>
+          <article class="need-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7zM7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
+            <h3>Third-party logistics</h3><p>Labels, tracking, and cash on delivery receive only the minimum required data.</p>
+          </article>
+          <article class="need-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm2 15h4"/></svg>
+            <h3>Remote order entry</h3><p>Creating orders from phones, Macs, or Discord is not remote-controlling an office PC.</p>
+          </article>
+          <article class="need-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3M3 21h18"/></svg>
+            <h3>Sales forecasting</h3><p>Transaction history should become replenishment, repurchase, and cross-sell signals.</p>
+          </article>
+          <article class="need-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-1 2 2 4-4M2 21c0-4 2-7 6-7 2 0 3 .5 4 1"/></svg>
+            <h3>Lead tracking and prediction</h3><p>Who to contact, what to do next, and the outcome must return to a closed loop.</p>
+          </article>
+        </div>
+        <p class="statement">The data exists. It simply cannot leave safely, and external results cannot return reliably.</p>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-11" lang="en" data-lang="en" data-title="Two safe routes" aria-labelledby="slide-11-title" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow">11 · SOLUTION STRATEGY</p>
+        <h2 id="slide-11-title">Do not rewrite the ERP.<br><em>Choose the right entry point first.</em></h2>
+        <p class="section-lead">Use reverse engineering, DFM, and type analysis to understand the boundary, then choose one route according to each module's maturity.</p>
+        <div class="route-layout">
+          <article class="route-card route-a">
+            <div class="route-label">ROUTE A</div>
+            <h3>Accessibility + SQL<br>dual verification</h3>
+            <p>Before a stable kernel is known, compare UI object names with read-only persisted data for the same document.</p>
+            <ol>
+              <li>Read UIA objects with Live Inspect</li>
+              <li>Query persisted data with read-only SQL</li>
+              <li>Accept a field relationship only when both agree</li>
+            </ol>
+          </article>
+          <div class="or-divider" aria-label="Choose one route"><span>OR</span></div>
+          <article class="route-card route-b">
+            <div class="route-label">ROUTE B</div>
+            <h3>Direct ERP kernel access<br>preserves business rules</h3>
+            <p>Once a stable business object is known, remove coordinate, mouse, and keyboard automation and execute existing rules directly.</p>
+            <ol>
+              <li>Fixed input schema</li>
+              <li>Existing business object executes</li>
+              <li>Independent post-operation reconciliation</li>
+            </ol>
+          </article>
+        </div>
+        <div class="converge">
+          <span>Both routes converge into</span>
+          <strong>Headless CLI + verifiable JSON</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-12" lang="en" data-lang="en" data-title="Accessibility + SQL verification" aria-labelledby="slide-12-title" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow">12 · ROUTE A</p>
+        <h2 id="slide-12-title">The UI is one ruler. SQL is another.<br><em>Both measure the same document.</em></h2>
+        <div class="evidence-grid">
+          <figure class="visual-frame">
+            <img src="screenshots/legacy-delphi-sale-voucher.png" alt="Original Delphi ERP sales voucher screen">
+            <figcaption><b>Original ERP screen</b> | Read control names, hierarchy, and values through Accessibility</figcaption>
+          </figure>
+          <figure class="visual-frame">
+            <img src="screenshots/readonly-sql-sale-voucher.png" alt="Read-only MSSQL query showing sales voucher, customer, and line items">
+            <figcaption><b>Persisted data</b> | Verify customer, products, quantities, and prices by document number</figcaption>
+          </figure>
+        </div>
+        <div class="verification-line">
+          <span>Value shown in UI</span><i aria-hidden="true">=</i><span>Value returned by SQL</span><i aria-hidden="true">→</i><strong>Field relationship verified</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-13" lang="en" data-lang="en" data-title="ERP kernel and headless access" aria-labelledby="slide-13-title" aria-hidden="true">
+      <div class="slide-inner split-visual">
+        <div class="copy-block">
+          <p class="eyebrow">13 · ROUTE B</p>
+          <h2 id="slide-13-title">Once the kernel is found,<br><em>remove the mouse and keyboard.</em></h2>
+          <p class="lead compact">Production workflows no longer depend on window coordinates, focus, or human timing. Queries and creation use fixed command boundaries, followed by independent reconciliation.</p>
+          <div class="status-stack">
+            <span><i class="status-dot green"></i>UI untouched</span>
+            <span><i class="status-dot green"></i>0 ERP keyboard events</span>
+            <span><i class="status-dot blue"></i>SQL read-only reconciliation</span>
+          </div>
+          <div class="mini-flow" aria-label="Headless workflow">
+            <b>JSON command</b><span>→</span><b>ERP business object</b><span>→</span><b>Result reconciliation</b>
+          </div>
+        </div>
+        <figure class="visual-frame tall-visual">
+          <img src="screenshots/sales-query-web.png" alt="Web sales-voucher query powered by the headless core">
+          <figcaption>The headless core returns structured data for web, bots, and other clients.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-14" lang="en" data-lang="en" data-title="Remote order entry through Discord" aria-labelledby="slide-14-title" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="eyebrow">14 · AI WORKFLOW</p>
+        <h2 id="slide-14-title">Once the ERP has a CLI,<br><em>sales staff can create orders from anywhere.</em></h2>
+        <div class="wide-evidence">
+          <figure class="visual-frame discord-frame">
+            <img src="screenshots/discord-ai-sale-voucher.png" alt="A user requests a sales voucher in natural language through Discord, and the bot returns the document number and SQL verification">
+          </figure>
+          <ol class="number-flow">
+            <li><span>1</span><div><b>Natural language</b><small>Sales staff describe the required order</small></div></li>
+            <li><span>2</span><div><b>Fixed fields</b><small>AI interprets intent; it never writes directly to the database</small></div></li>
+            <li><span>3</span><div><b>ERP creates document</b><small>The kernel applies existing business rules</small></div></li>
+            <li><span>4</span><div><b>SQL verification</b><small>Reply only after document number and contents are reconciled</small></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-15" lang="en" data-lang="en" data-title="Third-party service integration" aria-labelledby="slide-15-title" aria-hidden="true">
+      <div class="slide-inner split-visual operations-layout">
+        <figure class="visual-frame tall-visual">
+          <img src="screenshots/today-labels-workflow.png" alt="A production web work page integrating e-invoicing, UDI, postal, and HCT shipping labels">
+          <figcaption>Operating work page | Sales data connected to shipping and third-party services</figcaption>
+        </figure>
+        <div class="copy-block">
+          <p class="eyebrow">15 · ENTERPRISE INTEGRATION</p>
+          <h2 id="slide-15-title">One controlled interface<br><em>connects to the outside world.</em></h2>
+          <figure class="module-strip">
+            <img src="screenshots/erp-workflow-navigation.png" alt="Production navigation showing sales, receivables, labels, analytics, inventory, approvals, and knowledge-base modules">
+            <figcaption>Completed modules in the same operating system—not a roadmap</figcaption>
+          </figure>
+          <div class="delivery-list">
+            <article><span class="state done">LIVE</span><div><b>E-invoicing</b><p>Products, amounts, and processing results</p></div></article>
+            <article><span class="state done">LIVE</span><div><b>Third-party logistics</b><p>Shipments, labels, tracking, and cash on delivery</p></div></article>
+            <article><span class="state done">LIVE</span><div><b>UDI / postal layouts</b><p>Scanning, records, and batch printing</p></div></article>
+            <article><span class="state done">LIVE</span><div><b>Payments / receivables</b><p>Payment status, webhooks, and document reconciliation</p></div></article>
+          </div>
+          <p class="security-note">ERP credentials and vendor components remain on a controlled Windows host. External services receive only the minimum data needed for each task. New providers require a new adapter—not another ERP integration project.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-16" lang="en" data-lang="en" data-title="Analytics, prediction, and next action" aria-labelledby="slide-16-title" aria-hidden="true">
+      <div class="slide-inner final-grid">
+        <div class="copy-block">
+          <p class="eyebrow">16 · FROM DATA TO DECISIONS</p>
+          <h2 id="slide-16-title">Once data can leave safely,<br><em>the next action becomes predictable.</em></h2>
+          <p class="lead compact">The bridge retrieves trustworthy data. The intelligence layer recommends the next best action. Keeping them separate prevents AI from exceeding its ERP authority.</p>
+          <div class="insight-grid">
+            <article><b>Replenishment prediction</b><span>Who may run out soon?</span></article>
+            <article><b>Lead priority</b><span>Who should be contacted first today?</span></article>
+            <article><b>Cross-sell recommendation</b><span>What is the next reasonable product?</span></article>
+            <article><b>Feedback loop</b><span>Did the action work?</span></article>
+          </div>
+          <div class="final-cta">
+            <p>This is not a chatbot placed beside an old workflow.<br><b>Understand the process, add a safe interface, then let AI work reliably.</b></p>
+            <div class="cta-row">
+              <a class="primary-link" href="https://github.com/joeIvan2/legacy-erp-headless-bridge">View Headless Bridge</a>
+              <a class="secondary-link" href="https://github.com/joeIvan2/customer-sales-intelligence">View Sales Intelligence</a>
+            </div>
+          </div>
+        </div>
+        <figure class="visual-frame final-visual">
+          <img src="screenshots/sales-lead-replenishment-prediction.png" alt="Production sales intelligence table with customer, recommendation type, replenishment cycle, suggested products, rationale, related products, and recommendation score">
+          <figcaption>Production results | Replenishment cycles, next products, rationale, related products, and lead priority</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
 
-  <footer class="controls" aria-label="簡報導覽">
+  <footer class="controls" aria-label="簡報導覽 / Presentation navigation">
     <button class="nav-button" id="prevButton" type="button" aria-label="上一頁">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span>上一頁</span>
     </button>
     <div class="progress-group">
-      <div class="dots" id="dots" aria-label="選擇頁面"></div>
-      <p class="page-status" id="pageStatus" aria-live="polite">01 / 08 · 沒有接口的老 ERP</p>
+      <div class="dots" id="dots" aria-label="選擇頁面 / Select slide"></div>
+      <p class="page-status" id="pageStatus" aria-live="polite">01 / 16 · 沒有接口的老 ERP</p>
     </div>
     <button class="nav-button primary" id="nextButton" type="button" aria-label="下一頁">
       <span>下一頁</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>

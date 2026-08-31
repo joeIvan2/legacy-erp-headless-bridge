@@ -1,5 +1,7 @@
 # 沒有 API、沒有文件、不能停機：我把 26 年前的 32-bit Delphi ERP 接上 AI
 
+[English version ↓](#english-version)
+
 > 不是重寫 ERP，不是遠端桌面，也不是讓 AI 直接改資料庫。這個專案把一套 2000 年代的 Windows ERP，拆成可驗證的資料邊界，再接上 Headless CLI、Discord 自然語言工作流、Web 與銷售預測。
 
 ## 要解決的問題：ERP 像一座沒有門的倉庫
@@ -179,3 +181,189 @@ flowchart LR
 ---
 
 **真正的 AI 落地，不是把 Chatbot 放在舊流程旁邊；是先看懂舊流程、找到安全邊界，再讓 AI 能可靠地完成工作。**
+
+---
+
+<a id="english-version"></a>
+
+# No API, No Documentation, No Downtime: Connecting a 26-Year-Old 32-bit Delphi ERP to AI
+
+> This is not an ERP rewrite, remote desktop automation, or an AI system writing directly to a database. This project turns a Windows ERP from the early 2000s into a verifiable system boundary, then connects it to a headless CLI, a Discord natural-language workflow, web applications, and sales forecasting.
+
+## The problem: an ERP that has no safe door
+
+A legacy ERP contains customers, orders, inventory, accounting data, and years of accumulated business rules. However, this system has no modern **API** and no stable **CLI** that other software can call. The data exists, but external systems have no safe and verifiable way to reach it.
+
+**The largest gap between AI and higher organizational productivity is often a legacy ERP with no API that can only be operated by people.**
+
+Every new requirement therefore becomes a high-risk customization project:
+
+- E-invoicing: how can the correct products, tax types, and amounts be retrieved while preserving an auditable processing record?
+- Third-party payments: how can payments be created, webhooks received, and transactions safely reconciled with ERP documents?
+- Third-party logistics: how can the minimum required data be submitted, labels and shipment status retrieved, without exposing ERP credentials?
+- Remote order entry: how can sales staff create orders from a phone, macOS, or Discord without remotely controlling an office Windows PC?
+- Sales forecasting: how can transaction history become replenishment, repurchase, and cross-sell signals instead of another manual Excel export?
+- Lead tracking and prediction: how can customer interactions, next actions, and outcomes be written back into a continuously improving loop?
+
+This project adds that missing door without breaking the existing ERP. Internal capabilities are exposed as a **headless CLI with a JSON contract**, allowing invoicing, payments, logistics, remote order entry, and AI analysis to share the same verifiable core.
+
+[Open the 16-slide bilingual fullscreen pitch](https://joeivan2.github.io/legacy-erp-headless-bridge/) · [View the GitHub repository](https://github.com/joeIvan2/legacy-erp-headless-bridge)
+
+### These are operating capabilities, not a roadmap
+
+<a href="docs/screenshots/erp-workflow-navigation.png">
+  <img src="docs/screenshots/erp-workflow-navigation.png" alt="Navigation from the operating system, including sales vouchers, read-only queries, loan and return workflows, accounts receivable, label printing, product analysis, inventory counting, receiving, approvals, coupons, and a knowledge base" width="100%">
+</a>
+
+The image above shows modules already operating in one workflow: sales and loan/return queries, accounts receivable, invoice and logistics labels, product sales analysis, inventory counting, human-tissue receiving, high-value plan approvals, coupons, and a clinical education knowledge base. Third-party payment and receivable reconciliation are also completed capabilities. Future work may add adapters for new payment or logistics providers; it does not start the ERP integration again from zero.
+
+This showcase is my most direct practical response to Phison Electronics' [AI-Enabled Application Engineer](https://www.104.com.tw/job/8y9sm?jobsource=company_job) role. When an enterprise system has no complete manual, I use experimentation, decomposition, verification, and iterative improvement to connect AI to the real workflow—not to build a demo that stops working outside a controlled environment. It also reflects Phison's idea of a [gamer's problem-solving mindset](https://uanalyze.com.tw/articles/2374653827): learn the rules, break through constraints, and turn the solution into a system that other people can use reliably.
+
+## Starting point: an old ERP that still runs the business
+
+<a href="docs/screenshots/legacy-delphi-sale-voucher.png"><img src="docs/screenshots/legacy-delphi-sale-voucher.png" alt="Original sales voucher screen from the 32-bit Delphi ERP" width="100%"></a>
+
+The original system is a 32-bit Delphi Windows executable. It carries years of business rules, but it has no modern API and cannot run directly on macOS, mobile devices, or ordinary cloud environments. The goal was not to replace everything at once. The first objective was to find a safe, reconcilable path that could support gradual replacement.
+
+## Core solution: choose a reliable path out of the ERP
+
+```mermaid
+flowchart LR
+    ERP[26-year-old<br/>32-bit Delphi ERP]
+    Research[Interoperability research<br/>Reverse engineering / DFM / types and components]
+
+    subgraph A[Route A: no stable kernel boundary yet]
+        UIA[Accessibility Insights<br/>Read UI Automation object names]
+        SQL[Read-only SQL<br/>Query the same document]
+        Double[UI + SQL<br/>Dual verification]
+        UIA --> Double
+        SQL --> Double
+    end
+
+    subgraph B[Route B: stable business object identified]
+        Kernel[ERP kernel / business object<br/>Preserve vendor validation rules]
+    end
+
+    Data[Verifiable structured data<br/>Headless CLI + JSON contract]
+    Discord[Discord + AI<br/>Natural-language order entry]
+    Insight[Sales intelligence<br/>Replenishment / segmentation / prediction]
+    Web[Web / cross-device workflows]
+
+    ERP --> Research
+    Research --> UIA
+    Research --> SQL
+    Research --> Kernel
+    Double --> Data
+    Kernel --> Data
+    Data --> Discord
+    Data --> Insight
+    Data --> Web
+```
+
+Interoperability research on legally owned and deployed software—using reverse engineering, DFM analysis, and type relationships—was used to identify the responsibility boundaries between screens, data, and business rules, not to copy the vendor's program. Each module then follows one of two routes according to its maturity; both routes do not need to be repeated for every operation.
+
+- **Route A | Accessibility plus SQL dual verification:** before the internal object boundary is known, [Accessibility Insights for Windows](https://accessibilityinsights.io/) Live Inspect reads UI Automation object names and a read-only SQL query retrieves the same document. A field relationship is accepted only when both sides agree. Microsoft currently recommends Accessibility Insights for accessibility inspection, while the traditional Inspect tool can still provide detailed UIA properties and control patterns. [Official documentation](https://learn.microsoft.com/windows/apps/design/accessibility/accessibility-testing)
+- **Route B | Call the ERP kernel directly:** once a stable business object is identified through reverse engineering, types, and component relationships, coordinate-based mouse and keyboard automation can be removed. The original ERP rules execute the operation, and a read-only query independently reconciles the result.
+
+### Route A: cross-check the same document through UI objects and MSSQL
+
+<table>
+  <thead>
+    <tr>
+      <th width="50%">Understand UI structure and objects</th>
+      <th width="50%">Verify persisted data with read-only SQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="docs/screenshots/web-rebuild-devtools.png"><img src="docs/screenshots/web-rebuild-devtools.png" alt="Browser DOM rebuilt and inspected from the original ERP form structure" width="100%"></a></td>
+      <td><a href="docs/screenshots/readonly-sql-sale-voucher.png"><img src="docs/screenshots/readonly-sql-sale-voucher.png" alt="Sales voucher header, customer, and line items retrieved through a read-only MSSQL query" width="100%"></a></td>
+    </tr>
+    <tr>
+      <td>First identify field names, control hierarchy, and form semantics. The rebuilt screen is used for field-by-field comparison, not screenshot streaming.</td>
+      <td>Then follow the document number to the customer, products, quantities, and prices to prove that the UI and query refer to the same persisted record.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Route B: remove UI events and connect directly to ERP business objects
+
+<a href="docs/screenshots/web-sale-voucher.png"><img src="docs/screenshots/web-sale-voucher.png" alt="Sales voucher rebuilt in a real web DOM from ERP business-object data" width="100%"></a>
+
+This web screen is not RDP, VNC, a canvas screenshot, or a WebView wrapper. The backend retrieves data through the existing ERP boundary, and the frontend rebuilds the information hierarchy with native HTML, CSS, and JavaScript. The bottom of the screen reports `SQL read-only`, `UI untouched`, and `0 ERP keyboard events`, showing that production queries no longer depend on a foreground window.
+
+## Why not INSERT or UPDATE the database directly?
+
+ELI5 version: a sales voucher is not a sticky note. It is a multi-part document that can affect accounting, inventory, tax, invoices, batch numbers, and audit records at the same time.
+
+A direct SQL write can make the screen look correct while silently missing related tables, state fields, or vendor business rules. The damage may not appear immediately. It can accumulate as inventory imbalances, inconsistent tax amounts, failed reconciliation, or duplicate documents. This project therefore follows fixed rules:
+
+- SQL is used only for exploration, read-only queries, and post-operation reconciliation.
+- Production document creation and modification always go through the ERP kernel or an existing business object.
+- Every write operation uses a fixed schema, explicit confirmation, a unique request identifier, and independent reconciliation after completion.
+- If the result is uncertain, stop. Do not retry blindly.
+
+## Once data is available: one core, multiple entry points
+
+### 1. Discord plus AI: turn natural language into a verifiable sales voucher
+
+<a href="docs/screenshots/discord-ai-sale-voucher.png"><img src="docs/screenshots/discord-ai-sale-voucher.png" alt="A user requests a sales voucher in natural language through Discord, and the bot returns the document number and SQL verification result" width="100%"></a>
+
+AI is responsible only for understanding the user's intent. Before anything reaches the ERP, the request becomes fixed JSON fields, is previewed, and requires confirmation. A deterministic CLI and the ERP's business rules create the document. A separate SQL query then reconciles the result. AI provides language flexibility without gaining permission to write directly to the database.
+
+### 2. Web: turn a desktop entry point into a cross-device workflow
+
+<a href="docs/screenshots/sales-query-web.png"><img src="docs/screenshots/sales-query-web.png" alt="Web interface for querying ERP sales vouchers" width="100%"></a>
+
+The same headless core supports remote web queries, fuzzy customer search, historical document switching, and integrated operations. Another deployed work page connects postal labels, logistics, e-invoicing, and UDI records. Each external service receives only the minimum data needed for the current task.
+
+<details>
+  <summary><strong>Expand: operating shipment and third-party service page</strong></summary>
+  <br>
+  <a href="docs/screenshots/today-labels-workflow.png"><img src="docs/screenshots/today-labels-workflow.png" alt="A web operations page connecting sales data to postal labels, HCT logistics, e-invoicing, and UDI" width="100%"></a>
+</details>
+
+### 3. Analytics and prediction: data should support the next decision, not only display the past
+
+The upstream `legacy-erp-headless-bridge` retrieves ERP data safely, read-only, and with verification. The downstream [customer-sales-intelligence](https://github.com/joeIvan2/customer-sales-intelligence) turns that data into replenishment reminders, customer segments, cross-sell recommendations, purchase predictions, and sales worklists. The repositories intentionally have separate responsibilities: the bridge does not hide modeling logic, and the intelligence layer cannot operate the ERP beyond its authority.
+
+```mermaid
+flowchart LR
+    Bridge[Legacy ERP Headless Bridge<br/>Safe retrieval and verification]
+    Serving[De-identified data contract<br/>Traceable versions]
+    Intelligence[Customer Sales Intelligence<br/>Replenishment / segmentation / cross-sell / prediction]
+    Action[Sales worklist<br/>Next best action]
+
+    Bridge --> Serving --> Intelligence --> Action
+```
+
+## How this project maps to an AI-Enabled Application Engineer role
+
+| Problem the role needs to solve | What this project has already demonstrated |
+| --- | --- |
+| AI workflow integration | Connected AI, Discord, web, CLI, SQL Server, and a Windows ERP into an end-to-end workflow |
+| Customized solutions | Found a safe, gradual integration boundary under real constraints instead of requiring the company to replace its legacy system first |
+| API and backend development | Used Python, Flask, typed JSON contracts, and controlled adapters to provide shared capabilities to multiple clients |
+| Business analysis and process redesign | Turned form reading, order entry, reconciliation, shipping, and analytics into verifiable and auditable steps |
+| Inference cost and reliability | Kept AI at the natural-language boundary while deterministic queries, writes, and verification handle ERP rules without wasting tokens recreating them |
+| Technical implementation and support | Kept the legacy system running while gradually moving from a GUI proof of concept to a headless architecture |
+
+## Technology and engineering boundaries
+
+- Python / Flask / typed JSON contracts
+- Microsoft SQL Server read-only analysis
+- Windows UI Automation / Accessibility Insights
+- Delphi DFM and interoperability research
+- Windows native interoperability / ERP business objects
+- Discord application integration
+- HTML / CSS / JavaScript web UI
+- pytest contract and regression testing
+- Unique request identifiers, confirmation, reconciliation, and fail-closed operation policies
+
+This public repository contains only original architecture, methods, result screenshots, and safety design. It does not contain the original executable, vendor libraries, decompiled source code, credentials, connection strings, production ERP automation code, or database write scripts. The screenshots were provided by the project owner and explicitly approved for public use; see the [Screenshot Policy](docs/screenshots/README.md).
+
+More design details: [Architecture](docs/ARCHITECTURE.md) · [Milestones](docs/MILESTONES.md) · [File Map](docs/FILE_MAP.md) · [Security](SECURITY.md)
+
+---
+
+**Real enterprise AI adoption is not a chatbot placed beside an old workflow. It begins by understanding the workflow, identifying a safe boundary, and then enabling AI to complete real work reliably.**

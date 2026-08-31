@@ -949,10 +949,194 @@ h2 em {
 
 .progress-bar span {
   display: block;
-  width: 12.5%;
+  width: 6.25%;
   height: 100%;
   background: linear-gradient(90deg, var(--blue), var(--green));
   transition: width 220ms ease;
+}
+
+.slide[lang="en"] h1,
+.slide[lang="en"] h2 {
+  max-width: 21ch;
+  letter-spacing: -.045em;
+}
+
+.slide[lang="en"] {
+  padding-top: calc(var(--topbar-height) + 20px);
+  padding-bottom: calc(var(--controls-height) + 16px);
+}
+
+.slide[lang="en"] h1 {
+  font-size: clamp(46px, 5.1vw, 86px);
+}
+
+.slide[lang="en"] h2 {
+  font-size: clamp(38px, 4.2vw, 70px);
+}
+
+.slide[lang="en"] .eyebrow {
+  margin-bottom: 13px;
+  letter-spacing: .12em;
+}
+
+.slide[lang="en"] .lead,
+.slide[lang="en"] .section-lead {
+  font-size: clamp(16px, 1.2vw, 21px);
+}
+
+.slide[lang="en"] .lead {
+  margin: 20px 0;
+}
+
+.slide[lang="en"] .section-lead {
+  margin: 15px 0 20px;
+}
+
+.slide[lang="en"] .takeaway {
+  margin-top: 18px;
+  font-size: clamp(14px, 1vw, 18px);
+}
+
+.slide[lang="en"] .need-grid {
+  margin-top: 20px;
+}
+
+.slide[lang="en"] .need-card {
+  min-height: 150px;
+  padding: 18px;
+}
+
+.slide[lang="en"] .need-card h3 {
+  margin: 10px 0 6px;
+  font-size: clamp(18px, 1.25vw, 23px);
+}
+
+.slide[lang="en"] .need-card p {
+  line-height: 1.42;
+}
+
+.slide[lang="en"] .statement {
+  margin-top: 16px;
+  padding: 11px 16px;
+  font-size: clamp(16px, 1.15vw, 21px);
+}
+
+.slide[lang="en"] .route-card {
+  padding: clamp(18px, 1.7vw, 26px);
+}
+
+.slide[lang="en"] .route-card h3 {
+  margin: 14px 0 10px;
+  font-size: clamp(24px, 2vw, 34px);
+}
+
+.slide[lang="en"] .route-card p,
+.slide[lang="en"] .route-card li {
+  font-size: clamp(14px, .95vw, 17px);
+  line-height: 1.42;
+}
+
+.slide[lang="en"] .route-card ol {
+  margin-top: 12px;
+}
+
+#slide-11 h2 {
+  font-size: clamp(36px, 3.8vw, 62px);
+}
+
+#slide-11 .route-card h3 {
+  font-size: clamp(22px, 1.8vw, 30px);
+}
+
+#slide-11 .route-card p,
+#slide-11 .route-card li {
+  line-height: 1.32;
+}
+
+#slide-11 .converge {
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.slide[lang="en"] .converge {
+  margin-top: 14px;
+  padding: 13px 18px;
+}
+
+.slide[lang="en"] .evidence-grid {
+  margin-top: 20px;
+}
+
+.slide[lang="en"] .evidence-grid .visual-frame img {
+  max-height: 34vh;
+}
+
+#slide-12 .evidence-grid .visual-frame img {
+  max-height: 29vh;
+}
+
+.slide[lang="en"] .verification-line {
+  margin-top: 14px;
+  padding: 12px 16px;
+  font-size: clamp(14px, 1.05vw, 19px);
+}
+
+.slide[lang="en"] .number-flow {
+  gap: 9px;
+}
+
+.slide[lang="en"] .number-flow li {
+  padding: 9px 11px;
+}
+
+#slide-14 .discord-frame img {
+  max-height: 44vh;
+}
+
+.slide[lang="en"] .operations-layout h2 {
+  font-size: clamp(36px, 3.7vw, 60px);
+}
+
+#slide-15 .module-strip {
+  margin-top: 8px;
+}
+
+#slide-15 .delivery-list {
+  gap: 7px;
+  margin: 10px 0 12px;
+}
+
+#slide-15 .delivery-list article {
+  padding: 7px 10px;
+}
+
+#slide-15 .security-note {
+  margin-top: 7px;
+  padding: 7px 10px;
+  font-size: 12px;
+  line-height: 1.38;
+}
+
+#slide-15 h2 {
+  font-size: clamp(34px, 3.4vw, 54px);
+}
+
+#slide-16 h2 {
+  font-size: clamp(36px, 3.8vw, 62px);
+}
+
+.slide[lang="en"] .insight-grid {
+  margin: 18px 0;
+}
+
+.slide[lang="en"] .final-cta {
+  padding-top: 13px;
+}
+
+.slide[lang="en"] .final-cta p {
+  margin-bottom: 13px;
+  font-size: clamp(15px, 1.05vw, 19px);
 }
 
 @media (max-width: 1080px) {
@@ -1059,16 +1243,16 @@ h2 em {
   }
 
   .dots {
-    gap: 4px;
+    gap: 2px;
   }
 
   .dot-button {
-    width: 16px;
+    width: 10px;
     height: 7px;
   }
 
   .dot-button[aria-current="true"] {
-    width: 28px;
+    width: 20px;
   }
 }
 

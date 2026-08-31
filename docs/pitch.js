@@ -22,7 +22,12 @@
     const button = document.createElement("button");
     button.className = "dot-button";
     button.type = "button";
-    button.setAttribute("aria-label", `前往第 ${index + 1} 頁：${slide.dataset.title}`);
+    button.setAttribute(
+      "aria-label",
+      slide.dataset.lang === "en"
+        ? `Go to slide ${index + 1}: ${slide.dataset.title}`
+        : `前往第 ${index + 1} 頁：${slide.dataset.title}`
+    );
     button.addEventListener("click", () => showSlide(index));
     dots.append(button);
     return button;
@@ -46,9 +51,26 @@
     });
 
     const slide = slides[currentIndex];
+    const isEnglish = slide.dataset.lang === "en";
     prevButton.disabled = currentIndex === 0;
     nextButton.disabled = currentIndex === slides.length - 1;
-    nextButton.querySelector("span").textContent = currentIndex === slides.length - 1 ? "結束" : "下一頁";
+    prevButton.querySelector("span").textContent = isEnglish ? "Previous" : "上一頁";
+    nextButton.querySelector("span").textContent = currentIndex === slides.length - 1
+      ? (isEnglish ? "End" : "結束")
+      : (isEnglish ? "Next" : "下一頁");
+    prevButton.setAttribute("aria-label", isEnglish ? "Previous slide" : "上一頁");
+    nextButton.setAttribute(
+      "aria-label",
+      currentIndex === slides.length - 1
+        ? (isEnglish ? "End presentation" : "結束簡報")
+        : (isEnglish ? "Next slide" : "下一頁")
+    );
+    const fullscreenActive = Boolean(document.fullscreenElement);
+    const fullscreenLabel = isEnglish
+      ? (fullscreenActive ? "Exit fullscreen" : "Enter fullscreen")
+      : (fullscreenActive ? "離開全螢幕" : "切換全螢幕");
+    fullscreenButton.setAttribute("aria-label", fullscreenLabel);
+    fullscreenButton.title = fullscreenLabel;
     pageStatus.textContent = `${pad(currentIndex + 1)} / ${pad(slides.length)} · ${slide.dataset.title}`;
     progressBar.style.width = `${((currentIndex + 1) / slides.length) * 100}%`;
     document.title = `${pad(currentIndex + 1)}｜${slide.dataset.title}｜Legacy ERP → AI`;
@@ -109,14 +131,20 @@
       if (document.fullscreenElement) await document.exitFullscreen();
       else await document.documentElement.requestFullscreen();
     } catch {
-      fullscreenButton.title = "瀏覽器未允許全螢幕，仍可按 F11";
+      fullscreenButton.title = slides[currentIndex].dataset.lang === "en"
+        ? "Fullscreen was blocked by the browser. You can still press F11."
+        : "瀏覽器未允許全螢幕，仍可按 F11";
     }
   });
 
   document.addEventListener("fullscreenchange", () => {
     const active = Boolean(document.fullscreenElement);
-    fullscreenButton.setAttribute("aria-label", active ? "離開全螢幕" : "切換全螢幕");
-    fullscreenButton.title = active ? "離開全螢幕" : "切換全螢幕";
+    const isEnglish = slides[currentIndex].dataset.lang === "en";
+    const label = isEnglish
+      ? (active ? "Exit fullscreen" : "Enter fullscreen")
+      : (active ? "離開全螢幕" : "切換全螢幕");
+    fullscreenButton.setAttribute("aria-label", label);
+    fullscreenButton.title = label;
   });
 
   document.body.classList.add("initial-render");
